@@ -1,0 +1,17 @@
+Our program Prodcomm is multi threaded program that takes input strings, converts white space to asteriks, 
+changes the lowercase characters to uppercase and prints it out to stdout.
+We have made the program multi threaded by creating 4 threads, where each thread does one task. 
+The reader thread reads the from stdin, the munch thread converts the spaces in input to asteriks.
+Munch 2 thread converts the resulting line to all uppercase characters. Finally, the writer thread 
+prints out the final line to stdout. 
+
+
+For simplicity, we have implmented synchronization using monitors instead of semaphores.
+We do this by declaring the lock (mutex)and the condition variables(full,empty) in our queue data
+structure. We initialized them in our createStringQueue() function.
+
+We have taken care of modularity by seperating our code in 4 different files.Reader.c file
+contains the function for the reader thread that takes input from stdin. Munch1.c has the function
+for converting the white space to asteriks. Munch2.c has function that converts all lowercase 
+characters to uppercase. Finally, writer.c writes the line to stdout.The size of our buffer and 
+queue are defined as constants in our constants.h file
